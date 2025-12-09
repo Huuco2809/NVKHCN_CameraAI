@@ -1,0 +1,35 @@
+<div class="configs-page">
+  <div class="container page">
+    <div class="camera-select">
+      <form>
+        Lựa chọn Camera
+        <mat-form-field>
+          <select class="camera-select" matNativeControl (change)='onChange($event)'>
+            <option>---</option>
+            <option *ngFor="let option of options" value="{{option.value}}">{{option.name}}</option>
+          </select>
+        </mat-form-field>
+      </form>
+      <!-- <div class="col-md-6 offset-md-3 col-xs-12"> -->
+      <!-- </div> -->
+    </div>
+    <div class="camera-polygon">
+      <hr/>
+      <p>Số phân vùng đã vẽ: {{objectKeys(regions).length}}</p>
+      <button class="btn" id="Draw" *ngIf="enableDrawPolygonBtn" (click)="drawPolygon()" [disabled]="!isCanvasDrawn">
+        Draw
+      </button>
+
+      <hr />
+      <canvas id="canvasId" style="border: 1px solid rgb(6, 136, 6)"></canvas>
+      <!-- <app-fabric-canvas></app-fabric-canvas> -->
+    </div>
+    <div class="btn-actions">
+      <button class="btn btn-reset" style="margin-right:30px;" (click)="reset()">Bỏ chọn</button>
+      <button class="btn btn-danger" style="margin-right:30px;"  id="delete" (click)="delete()" [disabled]="!selectedObject">
+        Xóa phân vùng
+      </button>
+      <button class="btn btn-submit" (click)="update()">Cập nhật</button>
+    </div>
+  </div>
+</div>

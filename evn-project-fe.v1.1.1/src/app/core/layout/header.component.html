@@ -1,0 +1,61 @@
+<nav class="navbar navbar-light" >
+  <div class="container1">
+    <a  routerLink="/" routerLinkActive="active">
+      <img class="navbar-brand" style="width: 150px; height: auto;" src="/assets/image/evngenco.png" alt="">
+    </a>
+    <a class="navbar-brand" style="font-family: 'Times New Roman', Times, serif !important; font-weight: bold !important ;margin-left: -30px !important ;color: #164397 !important; font-size: 19px !important; padding-top: 5px !important;" routerLink="/">HỆ THỐNG CAMERA GIÁM SÁT VẬN HÀNH NHÀ MÁY THỦY ĐIỆN ĐỒNG NAI 4</a>
+    <ul *appShowAuthed="true"
+        class="nav navbar-nav pull-xs-right">
+
+
+
+      <li class="nav-item">
+        <a style="margin-top: -100px !important">
+          <h4 style="font-weight: bold;">{{clock}}</h4>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a  
+           routerLink="/"
+           routerLinkActive="active">
+          <button class="btn btn-success">
+            <i class="ion-camera"></i>&nbsp;Màn hình chính
+          </button>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a 
+          routerLink="/configs"
+           routerLinkActive="active">
+          <button class="btn btn-success">
+            <i class="ion-gear-a"></i>&nbsp;Cấu hình
+          </button>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="currentUser$ | async as currentUser">
+        <a class="nav-link"
+           [routerLink]="['/']"
+           routerLinkActive="active">
+           <!-- <img [src]="currentUser.avatar" *ngIf="currentUser.avatar" class="user-pic"/> -->
+          <img src="https://ui-avatars.com/api/?background=008080&color=fff&name=Evn" class="user-pic"/>
+          {{ currentUser.username }}
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="currentUser$ | async as currentUser">
+        <button class="btn btn-danger" (click)="logout()">
+          Thoát
+        </button>
+      </li>
+
+    </ul>
+
+
+  </div>
+
+</nav>
+ 
+ 

@@ -1,0 +1,12 @@
+<div class="containter">
+  <!-- <h5>Danh sach vat the</h5> -->
+  <hr style="background-color:rgb(243, 246, 246)" />  
+  <div class="camera-objects" style="background-color:rgb(243, 246, 246)" >  
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">  
+      <div ngxSlickItem *ngFor="let image of images" class="slide">  
+          <img matTooltip="{{image.camera_name}} - {{image.cls_name}} - {{currentTime}}" alt="{{image.cls_name}}" src="{{ image.thumbnail }}" style="object-fit: fill; width: 140px; height:120px;">  
+      </div>  
+    </ngx-slick-carousel>  
+  </div>
+  <hr style="background-color:rgb(243, 246, 246)" /> 
+</div>

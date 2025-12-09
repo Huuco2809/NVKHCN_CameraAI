@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id='message'>
+    </ul>
+    <script>
+        const ws = new WebSocket(`{{ws_endpoint}}`);
+         ws.onmessage = function(event) {
+            var content = event.data;
+            var elmnt = document.createElement("li");
+            var textNode = document.createTextNode(content);
+            elmnt.appendChild(textNode);
+
+            var message = document.getElementById('message');
+            message.replaceChild(elmnt, message.childNodes[0]);
+        };
+    </script>
+</body>
+</html>

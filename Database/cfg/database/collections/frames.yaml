@@ -1,0 +1,56 @@
+frames:
+  name: frames
+  schema:
+    create_date:
+      bsonType: 'date'
+      required: True
+      expire: 120
+#      expire: 259200
+
+    camera_id:
+      bsonType: 'string'
+      required: True
+
+    thumbnail:
+      bsonType: 'string'
+
+    objects:
+      bsonType: 'array'
+      items:
+        title: 'object'
+        properties:
+          box:
+            bsonType: 'array'
+            items:
+              bsonType: "int"
+          cls_name:
+            bsonType: 'string'
+          cls_id:
+            bsonType: 'int'
+          conf:
+            bsonType: 'double'
+          thumbnail:
+            bsonType: 'string'
+          obj_id:
+            bsonType: 'int'
+          in_area:
+            bsonType: 'bool'
+          go_in:
+            bsonType: 'bool'
+          go_out:
+            bsonType: 'bool'
+          position:
+            bsonType: 'string'
+    
+
+    have_object:
+      bsonType: "bool"
+
+    in_area:
+      bsonType: "int"
+
+    go_in:
+      bsonType: "int"
+
+    go_out:
+      bsonType: "int"

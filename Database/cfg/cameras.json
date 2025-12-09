@@ -1,0 +1,11 @@
+[
+	{
+		"rtsp": "tmp/video1.webm",
+		"max_fps": 7
+	},
+	{
+		"rtsp": "tmp/car2.mp4",
+		"max_fps": 7
+	}
+	 
+]

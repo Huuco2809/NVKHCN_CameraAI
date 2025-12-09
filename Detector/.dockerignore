@@ -1,0 +1,36 @@
+.vscode/
+.idea
+*.idea
+.gitignore
+.git
+*.git
+.vscode
+__pycache__
+*__pycache__
+# binary files
+*.o
+*.a
+*.csv
+*.ipynb
+*.ipynb_checkpoints
+# check point
+*.index
+*.meta
+*.data-????-of-????
+*.pb
+*.h5
+*.weightse ap
+*.ckpt
+*.pt
+*.pyc
+*.cu
+*.log
+*.proto
+.env
+
+log/
+tmp*
+tmp/
+models/
+Dockerfile
+run_docker.sh

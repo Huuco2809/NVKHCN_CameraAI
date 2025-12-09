@@ -1,0 +1,24 @@
+<div class="selection-dialog">
+  <div class="header">
+    <h1 style="text-align: center; font-size: 18px;" mat-dialog-title>Lựa chọn Camera mới
+    </h1>
+  </div>
+  
+  <div mat-dialog-content cdkScrollable >
+    <mat-divider></mat-divider>
+    <form class="example-form">
+      <!-- {{ data.message }} -->
+      <mat-form-field [formControl]="formControl">
+        <select class="camera-select" matNativeControl (change)='onChange($event)'>
+          <option>---</option>
+          <option *ngFor="let item of data.items" value="{{item.value}}">{{item.name}}</option>
+        </select>
+      </mat-form-field>
+    </form>
+    <br/>
+  </div>
+  <div mat-dialog-actions>
+    <button class="btn btn-cancel" style="margin-right:30px;" (click)="cancel()">Hủy bỏ</button>
+    <button class="btn" (click)="confirm()">Xác nhận</button>
+  </div>
+</div>

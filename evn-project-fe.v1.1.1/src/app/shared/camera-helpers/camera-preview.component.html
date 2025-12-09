@@ -1,0 +1,17 @@
+<div class="camera-preview">    
+    <div class="camera-stream">
+        <!-- Stream -->
+        <img style="border: 1px solid rgb(210, 210, 234);" class="camera-stream-preview" matTooltip="{{cameraObj.camera_name}}" alt="{{cameraObj.camera_name}}" data-id='{{cameraObj.camera_id}}' [src]='image?image:nullImage' />
+        <!-- icom 3 cham -->
+        <button class="btn-camera-more" mat-button [matMenuTriggerFor]="afterMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+
+    <!-- dau 3 cham tren tung camera -->
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item (click)=updateCameraShowing(cameraObj)>Cập nhật</button>
+        <button mat-menu-item (click)="deleteCameraShowing(cameraObj)">Xóa</button>
+    </mat-menu>
+    <p>{{cameraObj.camera_name}}</p>
+</div>

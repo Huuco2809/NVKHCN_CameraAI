@@ -1,0 +1,53 @@
+cameras:
+  name: cameras
+  schema:
+    camera_id:
+      bsonType: 'string'
+      required: True
+      unique: True
+
+    camera_name:
+      bsonType: 'string'
+      required: True
+
+    rtsp:
+      bsonType: 'string'
+      required: True
+      unique: True
+
+    cam_width:
+      bsonType: 'int'
+
+    cam_height:
+      bsonType: 'int'
+
+    socket_url:
+      bsonType: 'string'
+
+    regions:
+      bsonType: 'array'
+      items:
+        bsonType: 'array'
+        items:
+          bsonType: 'array'
+          items:
+            bsonType: 'int'
+
+    showing:
+      bsonType: 'bool'
+
+    visualize:
+      bsonType: 'bool'
+
+    have_object:
+      bsonType: 'bool'
+
+    tracking:
+      bsonType: 'bool'
+
+    thumbnail:
+      bsonType: 'string'
+
+    mask:
+      bsonType: 'string'
+

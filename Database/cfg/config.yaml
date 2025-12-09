@@ -1,0 +1,64 @@
+data_dir: data
+cache_dir: .cache
+media_dir: ${data_dir}/media
+
+defaults:
+  - database/collections:
+    - users
+    - cameras
+    - frames
+  - override hydra/job_logging: custom
+  - _self_
+
+hydra:
+  run:
+    dir: ./log/${hydra:job.name}/${now:%Y-%m-%d}/${now:%H-%M}
+
+database:
+  name: evn_data
+  host: 172.17.0.1
+  port: 27018
+
+data_api:
+  data_dir: ${data_dir}
+  media_dir: ${media_dir}
+  cache_dir: ${cache_dir}
+  server_public:
+    host: http://10.0.0.238
+    port: 8030
+  database:
+    _target_: inference.wrapper.mongoDBAsync_wrapper.MongoDBWrapper
+    collections: ${database.collections}
+    name: ${database.name}
+    host: ${database.host}
+    port: ${database.port}
+
+
+updateDb_api:
+  workers: 12 # hieu chinh PID - MultiProcess - MultiThread
+  data_dir: ${data_dir}
+  media_dir: ${media_dir}
+  cache_dir: ${cache_dir}
+  video_dir: ${data_dir}/Video_capture
+  list_cam: cfg/cameras.json
+  detector:
+    _target_: inference.wrapper.detectByApi_wrapper.detectByApiWrapper
+    host: http://10.0.0.238
+    port: 8020
+    route: api/v1/detect
+    headers:
+      x-api-key: cb9fbE3A1d019fe67679827dEb34FE1eED5A3b1DcAd5605eaBe693E9F43b5AC2
+
+  database:
+    _target_: inference.wrapper.mongoDBSync_wrapper.MongoDBWrapper
+    collections: ${database.collections}
+    name: ${database.name}
+    host: ${database.host}
+    port: ${database.port}
+
+  # hieu chinh tracking
+  sort:
+    _target_: inference.wrapper.sort_wrapper.sortWrapper
+    max_age: 10
+    min_hits: 10
+    iou_threshold: 0.1

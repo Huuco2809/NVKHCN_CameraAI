@@ -1,0 +1,17 @@
+<div class="containter1">
+  <!-- <h5 style="margin-left: 100px;">List cameras</h5> -->
+  <div class="camera-list">
+    <app-camera-preview *ngFor="let camera of listShowing" [selections]="listSelection" [camera]="camera">
+    </app-camera-preview>
+  </div>
+  
+  <div class="camera-loading-message" *ngIf="loading === LoadingState.LOADING">
+    Loading cameras...
+  </div>
+  
+  <div class="camera-loading-message" *ngIf="loading === LoadingState.LOADED  && !cameras.length">
+    No cameras are here... yet.
+  </div>
+  
+  <app-camera-objects></app-camera-objects>
+</div>

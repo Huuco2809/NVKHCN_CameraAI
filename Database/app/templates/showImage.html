@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show images</title>
+<body>
+    <h1>Camera ID: {{ camera_id }}</h1>
+    <canvas id="Image" width="1080" height="720"></canvas>
+    <script>
+        const ws = new WebSocket(`{{ws_endpoint}}/{{ camera_id }}`);
+        ws.onmessage = function(event){
+            console.log("[message] Data received from server:");
+            var canvas = document.getElementById('Image')
+            context = canvas.getContext('2d');
+
+            var blob = event.data;
+            const blobUrl = URL.createObjectURL(blob) // blob is the Blob object
+            image = new Image();
+            image.src = blobUrl; // image is the image element from the DOM
+            image.onload = function(){
+                context.drawImage(image, 0, 0, 1080, 720);
+             }
+        }
+    </script>
+</body>
+</html>

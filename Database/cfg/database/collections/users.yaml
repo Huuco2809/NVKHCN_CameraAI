@@ -1,0 +1,12 @@
+user:
+  name: users
+  schema:
+    username:
+      bsonType: 'string'
+      required: True
+      unique: True
+
+    password:
+      bsonType: 'string'
+      required: True
+

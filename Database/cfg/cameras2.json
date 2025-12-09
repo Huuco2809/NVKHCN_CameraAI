@@ -1,0 +1,48 @@
+[
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=14&subtype=0",
+		"max_fps": 4
+	},
+ 
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=13&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=12&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=11&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=18&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=19&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=20&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh_123@117.3.71.224:5000/cam/realmonitor?channel=21&subtype=0",
+		"max_fps": 4
+	},
+
+	{
+		"rtsp": "rtsp://conh:conh1234@113.165.166.103:554/cam/realmonitor?channel=2&subtype=0",
+		"max_fps": 7
+	}
+]
+
+ 
